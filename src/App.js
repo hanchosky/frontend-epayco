@@ -1,20 +1,15 @@
 import React from 'react';
-import './index.css';
-import ReactDOM from 'react-dom';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { useForm } from 'react-hook-form';
 import { useItems } from './hooks/useItems';
 import { useAddItem } from './hooks/useAddItem';
-import ItemList from './components/molecules/ItemList.tsx';
-
-const queryClient = new QueryClient();
+import ItemList from './components/molecules/ItemList';
 
 const App = () => {
-  const { register, handleSubmit } = useForm<{ title: string; body: string }>();
+  const { register, handleSubmit } = useForm();
   const { data: items } = useItems();
   const mutation = useAddItem();
 
-  const onSubmit = (data: { title: string; body: string }) => {
+  const onSubmit = (data) => {
     if (!data.title || !data.body) {
       alert('Both fields are required');
       return;
@@ -36,9 +31,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(
-  <QueryClientProvider client={queryClient}>
-    <App />
-  </QueryClientProvider>,
-  document.getElementById('root')
-);
+export default App;
