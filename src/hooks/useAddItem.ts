@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from 'react-query';
 import axios from 'axios';
+import { Item } from '../types';
 
-const addItem = async (newItem: { title: string; body: string }) => {
+const addItem = async (newItem: Omit<Item, 'id'>) => {
   const response = await axios.post('https://jsonplaceholder.typicode.com/posts', newItem);
   return response.data;
 };

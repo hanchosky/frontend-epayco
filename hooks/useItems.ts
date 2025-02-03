@@ -1,8 +1,7 @@
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import { Item } from '../types';
 
-const fetchItems = async (): Promise<Item[]> => {
+const fetchItems = async () => {
   const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
   return response.data;
 };

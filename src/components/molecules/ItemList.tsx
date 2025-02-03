@@ -1,4 +1,3 @@
-// filepath: src/components/molecules/ItemList.tsx
 import React from 'react';
 import Item from '../../atoms/Item';
 import { Item as ItemType } from '../../types';
