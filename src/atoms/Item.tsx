@@ -1,6 +1,5 @@
-// filepath: src/components/atoms/Item.tsx
 import React from 'react';
-import { Item as ItemType } from '../../types';
+import { Item as ItemType } from '../types';
 
 const Item = ({ item }: { item: ItemType }) => {
   return (
